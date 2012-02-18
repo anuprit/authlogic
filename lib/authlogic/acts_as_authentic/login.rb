@@ -106,6 +106,7 @@ module Authlogic
         # The only reason I need to do the above is for Postgres and SQLite since they perform case sensitive searches with the
         # find_by_* methods.
         def find_by_smart_case_login_field(login)
+        puts "Inside find_by_smart_case_login_field"
           if login_field
             find_with_case(login_field, login, validates_uniqueness_of_login_field_options[:case_sensitive] != false)
           else
@@ -115,6 +116,7 @@ module Authlogic
         
         private
           def find_with_case(field, value, sensitivity = true)
+          puts "Inside find_with_case"
             if sensitivity
               send("find_by_#{field}", value)
             else
