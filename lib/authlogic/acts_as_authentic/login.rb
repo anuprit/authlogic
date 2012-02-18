@@ -119,8 +119,6 @@ module Authlogic
           puts "Inside find_with_case"
             if sensitivity
               send("find_by_#{field}", value)
-            else
-              first(:conditions => ["LIKE(#{quoted_table_name}.#{field}) = ?", value.mb_chars.downcase])
             end
           end
       end
