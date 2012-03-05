@@ -119,6 +119,8 @@ module Authlogic
           puts "Inside find_with_case"
             if sensitivity
               send("find_by_#{field}", value)
+            else
+              send("find_by_#{field}", value)
             end
           end
       end
